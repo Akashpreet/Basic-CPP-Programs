@@ -1,0 +1,553 @@
+All codes provided by Programmers of cuiet:
+join officail telegram: https://t.me/cuiet_progg
+
+
+____________________________________________________
+
+Check Palindrome
+
+int count(char arr[]){
+    int count=0;
+    for (int i=0;arr[i]!='\0';i++){
+        count++;
+    }
+    return count;
+}
+
+
+
+
+bool checkPalindrome(char arr[]) {
+    int x= count(arr);
+    int start=0,end=x-1;
+    while (start<end){
+        if(arr[start]==arr[end]){
+            start++;
+            end--;
+            continue;
+        }
+        else{
+            return false;
+        }
+        start++;
+        end--;
+    }
+    return true;
+}
+
+________________________________________________________
+
+Replace Character
+
+int count(char arr[]){ 
+    int count=0; 
+    for (int i=0;arr[i]!='\0';i++){ 
+        count++; 
+    } 
+    return count; 
+}
+
+
+void replaceCharacter(char arr[], char a, char b) {
+    int x=count(arr);
+    for(int i=0;i<x;i++){ 
+        if(arr[i]==a){ 
+            arr[i]=b; 
+        } 
+    } 
+    
+}
+______________________________________________________________________
+Trim Spaces
+
+#include <cstring>
+
+int count(char arr[]){ 
+    int count=0; 
+    for (int i=0;arr[i]!='\0';i++){ 
+        count++; 
+    } 
+    return count; 
+}
+
+
+
+
+void trimSpaces(char arr[]) {
+    // Write your code here
+       
+        int length=count(arr); 
+     char arr1[length];
+    int j=0;
+    for (int i=0;i<length;i++){
+        if(!isspace(arr[i])){
+          arr1[j]=arr[i] ;
+              j++;
+        }
+    }
+    arr1[j]='\0';
+    strcpy(arr,arr1);
+}
+
+
+______________________________________________________________________
+Reverse Word Wise
+
+#include <cctype>  
+#include <cstring>
+
+
+
+int count(char arr[]){  
+    int count=0;  
+    for (int i=0;arr[i]!='\0';i++){  
+        count++;  
+    }  
+    return count;  
+}  
+
+char* reverse(char arr[],int x){  
+    int start=0,end=x-1;  
+    while(start<end){  
+        int temp=arr[start];  
+        arr[start]=arr[end];  
+        arr[end]=temp;  
+        start++;  
+        end--;  
+    } 
+    arr[x]=' ';
+    arr[x+1]='\0';
+    return arr;  
+    }
+
+
+
+
+
+void reverseStringWordWise(char arr[]) {
+    int n=count(arr);  
+    int i=n-1; 
+    char arr2[n]={0};
+    for (i;i>=0;i--){  
+        int j=0;  
+        char arr1[n];  
+        while(!isspace(arr[i]) and i>=0){   
+            arr1[j]=arr[i];  
+            j++;  
+            i--;  
+        } 
+        
+        arr1[j]='\0';  
+          
+        reverse(arr1,j);  
+        //cout<<arr1<<endl;;
+        strcat(arr2,arr1);
+        //cout<<arr2<<endl;
+    }
+    //cout<<"sajda";
+    /*for (int i =0;i<n;i++){
+       cout<<arr2[i];
+    }*/
+    //cout<<arr2;
+    strcpy(arr,arr2);
+}
+
+
+______________________________________________________________________
+Print All Substrings
+
+void prefix(char arr[]){ 
+    for (int i=0;arr[i]!='\0';i++){ 
+        for (int j=0;j<=i;j++){ 
+            cout<<arr[j]; 
+        } 
+        cout<<endl; 
+    } 
+} 
+int count(char arr[]){ 
+    int count=0; 
+    for (int i=0;arr[i]!='\0';i++){ 
+        count++; 
+    } 
+    return count; 
+} 
+
+
+
+void printSubstrings(char arr[]) {
+    int n=count(arr); 
+    int j=0; 
+    while(j<n){ 
+        char arr2[100]; 
+        int x=0; 
+        for (int i=j;arr[i]!='\0';i++){ 
+            arr2[x]=arr[i]; 
+            x++; 
+        } 
+        arr2[x]='\0'; 
+        prefix(arr2); 
+     
+     
+    j++; 
+    } 
+}
+______________________________________________________________________
+Column Wise Sum
+
+//column wise sum 
+ 
+#include <iostream> 
+#include <cctype> 
+using namespace std; 
+ 
+ 
+int main(){ 
+    int m,n; 
+    cin>>m>>n; 
+    int arr[m][n]; 
+    for(int i=0;i<m;i++){ 
+        for (int j=0;j<n;j++){ 
+            cin>>arr[i][j]; 
+        } 
+    } 
+     
+    for(int j=0;j<n;j++){ 
+        int sum=0; 
+        for(int i=0;i<m;i++){ 
+            sum=sum+arr[i][j]; 
+        } 
+        cout<<sum<<" "; 
+    } 
+}
+______________________________________________________________________
+Largest Row or Column
+
+#include <climits>
+
+/*
+You can use minimum value of integer as -2147483647 and 
+maximum value of integer as 2147483647
+*/
+void findLargest(int **arr, int m, int n)
+{
+    int sum; 
+    int row_sum=INT_MIN; 
+    int row_index=0; 
+    for(int i=0;i<m;i++){ 
+        sum=0; 
+        for(int j=0;j<n;j++){ 
+            sum=sum+arr[i][j]; 
+        } 
+        if (sum>row_sum){ 
+            row_sum=sum; 
+            row_index=i; 
+        } 
+    } 
+    int col_sum=INT_MIN; 
+    int col_index=0; 
+    for(int j=0;j<n;j++){ 
+        sum=0; 
+        for(int i=0;i<m;i++){ 
+            sum=sum+arr[i][j]; 
+        } 
+        if (sum>col_sum){ 
+            col_sum=sum; 
+            col_index=j; 
+        } 
+    } 
+    if (row_sum>=col_sum){ 
+        cout<<"row"<<" "<<row_index<<" "<<row_sum; 
+    }else{ 
+        cout<<"column"<<" "<<col_index<<" "<<col_sum; 
+    }
+}
+______________________________________________________________________
+Wave Print
+
+void wavePrint(int **arr, int m, int n) 
+{ 
+    //wave print  
+        int j=0;  
+        while(j<n){  
+            int i=0;  
+            while(i<m){  
+                //cout<<j<<i<<" ";  
+                cout<<arr[i][j]<<" ";  
+                i++;  
+            }  
+            i=i-1;  
+            j=j+1;  
+            while(i>=0 and j<n){  
+                //cout<<j<<i<<" ";  
+                cout<<arr[i][j]<<" ";  
+                i--;  
+            }  
+              
+            j++;  
+        }  
+}
+______________________________________________________________________
+Spiral Print
+
+void spiralPrint(int **arr, int m, int n) 
+{ 
+     
+        int sum=n*m; 
+        int row_st=0; 
+        int row_end=m-1; 
+        int col_st=0; 
+        int col_end=n-1; 
+        while(sum>0){ 
+            for(int i=col_st;i<=col_end;i++){ 
+                cout<<arr[row_st][i]<<" "; 
+                sum=sum-1; 
+            } 
+            row_st=row_st+1; 
+            for(int i=row_st;i<=row_end;i++){ 
+                cout<<arr[i][col_end]<<" "; 
+                sum=sum-1; 
+            } 
+            col_end--; 
+            for(int i=col_end;i>=col_st;i--){ 
+                cout<<arr[row_end][i]<<" "; 
+                sum=sum-1; 
+            } 
+            row_end--; 
+            for(int i=row_end;i>=row_st;i--){ 
+                cout<<arr[i][col_st]<<" "; 
+                sum=sum-1; 
+            } 
+            col_st++; 
+        } 
+}
+______________________________________________________________________
+Check Permutation
+
+int count(char arr[]){  
+    int count=0;  
+    for (int i=0;arr[i]!='\0';i++){  
+        count++;  
+    }  
+    return count;  
+}
+
+
+
+bool isPermutation(char arr[], char arr1[]) {
+    int n=count(arr);  
+    int m=count(arr1); 
+    int f1[256]={0};
+    if (n!=m){
+       return false;
+    }
+    for (int i=0;i<n;i++){
+        int k;
+        k=arr[i];
+        f1[k]=f1[k]+1;
+    }
+    for (int i=0;i<n;i++){
+        int k;
+        k=arr1[i];
+        f1[k]=f1[k]-1;
+    }
+    
+    for (int i=0;i<256;i++){
+        if(f1[i]==0){
+           continue;
+        }
+        else{
+			return false;
+        }
+    }
+    return true;
+    
+}
+
+
+______________________________________________________________________
+Remove Consecutive Duplicates
+
+#include <cstring>
+int count(char arr[]){  
+    int count=0;  
+    for (int i=0;arr[i]!='\0';i++){  
+        count++;  
+    }  
+    return count;  
+}
+
+void removeConsecutiveDuplicates(char arr[]) {
+        int n=count(arr); 
+    char arr1[n]={0};
+    for (int i =0;i<n;i++){ 
+        char a=arr[i]; 
+        for(int j=i+1;arr[j]==a;j++){ 
+            i++; 
+        }
+        char arr2[2]={arr[i],'\0'};
+        strcat(arr1,arr2) ; 
+    }
+    strcpy(arr,arr1);
+}
+______________________________________________________________________
+Reverse Each Word
+
+#include <cctype>  
+#include <cstring>
+
+
+
+int count(char arr[]){  
+    int count=0;  
+    for (int i=0;arr[i]!='\0';i++){  
+        count++;  
+    }  
+    return count;  
+}  
+
+char* reverse(char arr[],int x){  
+    int start=0,end=x-1;  
+    while(start<end){  
+        int temp=arr[start];  
+        arr[start]=arr[end];  
+        arr[end]=temp;  
+        start++;  
+        end--;  
+    } 
+    arr[x]=' ';
+    arr[x+1]='\0';
+    return arr;  
+    }
+
+
+
+
+
+void reverseEachWord(char arr[]) {
+    int n=count(arr);  
+    int i=0; 
+    char arr2[n]={0};
+    for (i;i<n;i++){  
+        int j=0;  
+        char arr1[n];  
+        while(!isspace(arr[i]) and i<n){   
+            arr1[j]=arr[i];  
+            j++;  
+            i++;  
+        } 
+        
+        arr1[j]='\0';  
+          
+        reverse(arr1,j);  
+        //cout<<arr1<<endl;;
+        strcat(arr2,arr1);
+        //cout<<arr2<<endl;
+    }
+    //cout<<"sajda";
+    /*for (int i =0;i<n;i++){
+       cout<<arr2[i];
+    }*/
+    //cout<<arr2;
+    strcpy(arr,arr2);
+}
+
+
+______________________________________________________________________
+Remove character
+
+#include <cstring>
+
+int count(char arr[]){  
+    int count=0;  
+    for (int i=0;arr[i]!='\0';i++){  
+        count++;  
+    }  
+    return count;  
+}  
+
+
+
+void removeAllOccurrencesOfChar(char arr[], char a) {
+    int length=count(arr);
+    char arr1[length]={0};
+    int j=0;
+    for (int i=0;i<length;i++){  
+        if (arr[i]!=a){  
+          arr1[j]=arr[i];
+            j++;
+        }  
+    }
+    arr1[j]='\0';
+    strcpy(arr,arr1);
+}
+
+______________________________________________________________________
+Highest Occuring Character
+
+#include <cctype>
+ 
+int count(char arr[]){  
+    int count=0;  
+    for (int i=0;arr[i]!='\0';i++){  
+        count++;  
+    }  
+    return count;  
+}
+
+
+char highestOccurringChar(char arr[]) {
+    // Write your code here
+    int length=count(arr);  
+    //creating frequency array with all elements 0 
+    int freq_array[256]={0}; 
+    for (int i=0;i<length;i++){ 
+        char a=arr[i]; 
+        int b=a; 
+        freq_array[b]=freq_array[b]+1; 
+    }  
+    char max_char=arr[0]; 
+    int max_char_ascii=arr[0]; 
+    int count=freq_array[max_char_ascii]; 
+    for(int i=0;i<length;i++){ 
+        int max_char_ascii11=arr[i]; 
+        
+        if(freq_array[max_char_ascii11]>count){ 
+            count =freq_array[max_char_ascii11];
+            max_char=arr[i]; 
+        } 
+    } 
+    return max_char;
+}
+
+
+______________________________________________________________________
+Compress the String
+
+string getCompressedString(string &input) {
+    int y= input.length();
+    char arr[y];
+    input.copy(arr, y, 0);
+    input.clear();
+    int sum=0;  
+    for (int i=0;i<y;i++){  
+        char a=arr[i];  
+        input.push_back(a); 
+        for (int j=i;j<y;j++){  
+            if (arr[j]==a){  
+                sum=sum+1;  
+                i++;  
+            }  
+            else{  
+                i--;  
+                break;   
+            } 
+        }
+        if(!(sum==1)){
+            input.push_back(sum+48);  
+        } 
+        sum=0;  
+    }
+     return input;
+}
+______________________________________________________________________
+

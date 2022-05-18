@@ -1,0 +1,245 @@
+All codes provided by Programmers of cuiet:
+join officail telegram:https://t.me/cuiet_progg
+
+-------------------------------------------------------
+Check Case
+
+#include<iostream>
+using namespace std;
+
+int main() {
+    char a;
+	cin>>a;
+    
+    if (a>='A' && a<='Z'){
+        cout<<1;
+    }
+	else if (a>='a' && a<='z'){
+        cout<<0;
+    }
+    else{
+     cout<<-1;
+    }
+}
+-----------------------------------------------------
+Sum of Even Numbers till N
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       	/*  
+		Read input as specified in the question.
+		Print output as specified in the question.
+	*/
+    int N;
+    cin>>N;
+    int num=1;
+    int sum=0;
+    while (num<=N){
+        if (num%2==0){
+           sum=sum+num;      
+        }
+        num=num+1;
+    }
+    cout<<sum;
+}
+-------------------------------------------------------------
+Fahrenheit to Celsius Table
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       /*  Read input as specified in the question.
+	* Print output as specified in the question.
+	*/
+  int S,E,W;
+    cin>>S>>E>>W;
+    while(S<=E){
+       int temp= ((5.0/9) *(S-32));
+       cout<<S<<" "<<temp<<endl;
+           S=S+W;
+    }
+}
+--------------------------------------------------------------------
+Number Pattern 1
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       /*  Read input as specified in the question.
+	* Print output as specified in the question.
+	*/
+  int n;
+    cin>>n;
+    int i=1;
+    while (i<=n){
+        int j=1;
+        int k=i;
+        while (j<=i){
+            cout<<k;
+            k=k+1;
+            j=j+1;
+        }
+        cout<<endl;
+        i=i+1;
+    }
+}
+-----------------------------------------------------------------
+Number Pattern 2
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       /*  Read input as specified in the question.
+	* Print output as specified in the question.
+	*/
+    int n;
+    cin>>n;
+    int i=1;
+    while (i<=n){
+        int spaces=1;
+        while(spaces<=n-i){
+            cout<<" ";
+            spaces=spaces+1;
+        }
+        
+        int j=1;
+        int k=i;
+        while (j<=i){
+            cout<<k;
+            k=k+1;
+            j=j+1;
+        }
+        cout<<endl;
+        i=i+1;
+    }
+  
+}
+--------------------------------------------------------------------
+Start Pattern
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       /*  Read input as specified in the question.
+	* Print output as specified in the question.
+	*/
+  int n;
+    cin>>n;
+    int i=1;
+    int k=1;
+    while (i<=n){
+        int spaces=1;
+        while(spaces<=n-i){
+            cout<<" ";
+            spaces=spaces+1;
+        }
+        
+        int j=1;
+        
+        while (j<=k){
+            cout<<"*";
+            j=j+1;
+        }
+        cout<<endl;
+        k=k+2;
+        i=i+1;
+    }
+}
+-------------------------------------------------------------------
+Total Salary
+#include<iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+	// Write your code here
+    int basic;
+    char grade;
+    cin>>basic>>grade;
+    float sal_before_grade;
+    sal_before_grade=basic+(basic*0.20)+(basic*0.50)-(basic*0.11);
+        if (grade=='A'){
+           sal_before_grade=sal_before_grade+1700;
+        }
+    else if(grade=='B'){
+        sal_before_grade=sal_before_grade+1500;
+    }
+    else{
+        sal_before_grade=sal_before_grade+1300;
+    }
+    int a=round(sal_before_grade);
+    cout<<a;
+    
+}
+---------------------------------------------------------------
+Sum of even & odd
+
+#include<iostream>
+using namespace std;
+
+int main() {
+	// Write your code here
+	int sum_odd;
+    int sum_ev=0;
+    int n;
+    cin>>n;
+    
+    while(n>0){
+        int d=n%10;
+        if (d%2==0){
+            sum_ev=sum_ev+d;
+        }
+        else{
+            sum_odd=sum_odd+d;
+        }
+        n=n/10;
+    }
+    cout<<sum_ev<<" "<<sum_odd;
+}
+----------------------------------------------------------
+Find power of a number
+#include<iostream>
+using namespace std;
+
+int main() {
+	// Write your code here
+	int a,b;
+    cin>>a>>b;
+    int n=1;
+    int sum=1;
+    if (b==0){
+     cout<<1;
+    }
+    else{
+      while(n<=b){
+        int ans=sum*a;
+            sum=ans;
+        n=n+1;
+       }
+       cout<<sum;
+    }
+    
+}
+-----------------------------------------------------------
+
+
+
+
+
+
+

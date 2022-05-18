@@ -1,0 +1,47 @@
+All codes provided by Programmers of cuiet:
+join officail telegram: https://t.me/cuiet_progg
+--------------------------------------------------------
+Fahrenheit to Celsius Table
+
+void printTable(int s, int e, int w) {
+    /* Don't write main().
+     * Don't read input, it is passed as function argument.
+     * Print output and don't return it.
+     * Taking input is handled automatically.
+     */
+    while(s<=e){
+        int farh;
+        farh=(5.0/9.0)*(s-32);
+        cout<<s<<"\t"<<farh<<endl;
+        s=s+w;
+    }
+    
+}
+------------------------------------------------------------------------
+Fibonacci Number
+
+
+bool checkMember(int n){
+
+  /* Don't write main().
+   * Don't read input, it is passed as function argument.
+   * Return output and don't print it.
+   * Taking input and printing output is handled automatically.
+  */
+    int a=0;
+    int b=1;
+    int c =0;
+    while(c<=n){
+        c=a+b;
+        a=b;
+        b=c;
+        if (c==n){
+            return true;
+        }
+        
+    }
+    return false;
+
+
+}
+-------------------------------------------------------------------------------

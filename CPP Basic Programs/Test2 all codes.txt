@@ -1,0 +1,94 @@
+All codes provided by Programmers of cuiet:
+join officail telegram: https://t.me/cuiet_progg
+
+__________________________________________________
+
+Print 2D Array
+#include <iostream> 
+using namespace std; 
+ 
+void print2DArray(int **arr, int m, int n) { 
+ // Write your code here 
+    for (int i=0;i<m;i++){ 
+        int k=i; 
+        for(int y=0;y<m-i;y++){ 
+            for(int j=0;j<n;j++){ 
+                cout<<arr[k][j]<<" "; 
+            } 
+            cout<<endl; 
+             
+             
+            
+            
+            
+        } 
+    } 
+}
+______________________________________________________________________
+
+Minimum Length Word
+
+/* input - Input String 
+*  output - Save the result in the output array (passed as argument). You don’t have to  
+*  print or return the result 
+*/ 
+//min length word 
+#include <cctype> 
+#include <cstring> 
+int count(char arr[]){    
+    int count=0;    
+    for (int i=0;arr[i]!='\0';i++){    
+        count++;    
+    }    
+    return count;    
+} 
+void minLengthWord(char arr[], char output[]){ 
+ int n=count(arr);   
+    int i=0; 
+    int minwordlength=99999999; 
+    char arr2[100]; 
+    for (i;i<n;i++){   
+        int j=0;   
+        char arr1[100];   
+        while(!isspace(arr[i]) and i<n){    
+            arr1[j]=arr[i];   
+            j++;   
+            i++;   
+        }   
+        arr1[j]='\0';   
+        int word_length=count(arr1); 
+        if  (word_length<minwordlength){ 
+            minwordlength=count(arr1); 
+            strcpy(arr2,arr1); 
+             
+        } 
+    } 
+    strcpy(output,arr2); 
+   
+ 
+}
+
+______________________________________________________________________
+
+Leaders in array
+
+//leader in array 
+void Leaders(int* arr,int n) 
+{ 
+ for(int i=0;i<n-1;i++){ 
+        bool leader=true; 
+        for (int j=i;j<n;j++){ 
+            if(arr[i]<arr[j]){ 
+                leader=false; 
+                break; 
+            } 
+         
+        } 
+        if(leader){ 
+            cout<<arr[i]<<" "; 
+        } 
+         
+         
+    } 
+    cout<<arr[n-1]; 
+}

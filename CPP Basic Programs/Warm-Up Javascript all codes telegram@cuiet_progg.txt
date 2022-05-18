@@ -1,0 +1,159 @@
+Priority List
+
+function newPriorityList(item) {
+    var Electronics=['Mobile', 'Watch', 'Kindle'];
+    // write your code here
+    var store = [item , ...Electronics]
+    return store
+}
+
+
+// Input and output has already been handled for you
+
+process.stdin.resume();
+process.stdin.setEncoding("utf-8");
+
+let remainder = '';
+process.stdin.on('data', function (chunk) {
+    var ans=newPriorityList(chunk);
+    for(var i=0; i<ans.length; i++)
+    {
+        process.stdout.write(ans[i]+'\n');
+    }
+    process.exit();
+});
+-------------------------------------------------------------------
+Sum of N numbers
+
+
+function sumOfNumbers(...args) {  
+    // write your code here
+    var total=0;
+    for(i in args)
+        {
+           total += args[i]
+        }
+    return total;
+    
+}
+
+
+// Input and output has already been handled for you
+
+process.stdin.resume();
+process.stdin.setEncoding("utf-8");
+
+let remainder = '';
+process.stdin.on('data', function (chunk) {
+    var arr = [];
+    var a = chunk.toString().split(' '); 
+    for(var i=0; i<a.length; i++)
+    {
+        arr.push(parseInt(a[i]));
+    }
+    ans = sumOfNumbers(...arr);
+    var ans1 = ""+ans;
+    process.stdout.write(ans1);
+    process.exit();
+});
+
+---------------------------------------------------------------
+Student Grades
+
+function studentGrades(grade) {
+    const students = [
+        { name: 'Anjali', grade: 96 },
+        { name: 'Navdeep', grade: 84 },
+        { name: 'Varun', grade: 100 },
+        { name: 'Bhavya', grade: 65 },
+        { name: 'Shiva', grade: 90 }
+      ];
+    //Write your code here
+    let top = students.filter(marks => marks.grade  >= grade);
+    return top;
+}
+
+
+// Input and output has already been handled for you
+
+
+process.stdin.resume();
+process.stdin.setEncoding("utf-8");
+
+let remainder = '';
+process.stdin.on('data', function (chunk) {
+    let t = parseInt(chunk);
+    let ans = studentGrades(t);
+    for(var i=0; i<ans.length; i++)
+    {
+        process.stdout.write(ans[i].name+'\n');
+    }
+    process.exit();
+});
+------------------------------------------------------------------
+Remove Duplicates
+
+function remDup(arr) {  
+    // write your code here
+    return arr.reduce((arr1,curr) => arr1.includes(curr)?arr1:[...arr1,curr],[]);
+    
+}
+
+
+
+// Input and output has already been handled for you
+
+process.stdin.resume();
+process.stdin.setEncoding("utf-8");
+
+let remainder = '';
+process.stdin.on('data', function (chunk) {
+    var arr = [];
+    var a = chunk.toString().split(' '); 
+    for(var i=0; i<a.length; i++)
+    {
+        arr.push(parseInt(a[i]));
+    }
+    ans = remDup(arr);
+    ans.sort();
+    for(var i=0; i<ans.length; i++)
+    {
+        process.stdout.write(ans[i]+' ');
+    }
+    process.exit();
+});
+--------------------------------------------------------------------
+Student Details
+
+function studentDetails(i) { 
+    
+    var classDetails = {
+        classTeacher: 'Anjani',
+        students: [{name: "Anjali", roll: "1"}, {name: "Bhavya", roll: "2"}, {name: "Neha", roll: "3"}]
+    };
+    // write your code here
+     let ans=[];
+    ans.push(classDetails.students[i].name);
+    ans.push(classDetails.students[i].roll);
+    
+    return ans;
+    
+}
+
+
+// Input and output has already been handled for you
+
+process.stdin.resume();
+process.stdin.setEncoding("utf-8");
+
+let remainder = '';
+process.stdin.on('data', function (chunk) {
+    let t = parseInt(chunk);
+    let ans = studentDetails(t);
+    for(var i=0; i<ans.length; i++)
+    {
+        process.stdout.write(ans[i]+'\n');
+    }
+    process.exit();
+});
+-------------------------------------------------------------------------------

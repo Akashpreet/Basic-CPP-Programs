@@ -1,0 +1,703 @@
+Coding ninjas Assignment recursion 1b.
+
+Remove X
+
+#include <iostream>
+using namespace std;
+#include <bits/stdc++.h>
+
+void help(char input[],int size ,int a)
+{
+    if(input[a]=='\0')
+        return;
+    if(input[a]=='x')
+    {
+        for(int i=a;i<size;i++)
+        {
+            input[i]=input[i+1];
+        }
+        size=size-1;
+    }
+     else 
+        a++;
+   
+    help(input,size,a);
+}
+
+
+void removeX(char input[]) {
+  
+    int size= strlen(input);
+    int count=0;
+    help(input,size,count);
+
+}
+
+
+-------------------------------------------------------------------------
+
+String Integer
+
+
+#include <iostream>
+using namespace std;
+
+#include <bits/stdc++.h>
+
+#include <cmath>
+
+
+int help(char *a,int s)
+{
+     int p=a[0];
+     p=p-48;
+    
+    if(s==1)
+    {
+       return p;
+    }
+
+    return (p* pow(10,s-1)+ help(a+1,s-1));
+}
+
+int stringToNumber(char input[]) {
+        
+    int size=strlen(input);
+    int ans=help(input,size);
+    return ans;
+}
+
+--------------------------------------------------------------
+
+q3 Tower of hanoi 
+
+#include <iostream>
+using namespace std;
+
+void towerOfHanoi(int n, char source, char auxiliary, char destination) {
+    if(n==0)
+        return;
+    towerOfHanoi(n-1,source,destination,auxiliary);
+    cout<<source<<" "<<destination<<endl;
+    towerOfHanoi(n-1,auxiliary,source,destination); 
+    
+// code written M1000
+// Tower of Hanoi
+}
+--------------------------------------------------------
+Assignmnet Recursion 2
+Q1Replace Character Recursively
+
+void replaceCharacter(char input[], char c1, char c2) {
+    /* Don't write main().
+     * Don't read input, it is passed as function argument.
+     * No need to print or return the output. 
+     * Change in the given input string itself.
+     * Taking input and printing output is handled automatically.
+     */
+    
+    
+//     code written by M1000;
+//     Replace Character Recursively
+     if(input[0]=='\0')
+        return;
+    if(input[0]!=c1)
+        replaceCharacter(input+1,c1,c2);
+    else
+    {
+        input[0]=c2;
+        replaceCharacter(input+1,c1,c2);
+    }
+}
+
+
+------------------------------------------------
+q2Remove Duplicates Recursively
+
+void removeConsecutiveDuplicates(char *input) {
+	/* Don't write main().
+	* Don't read input, it is passed as function argument.    
+	* Change in the given string itself.
+	* No need to return or print anything
+	* Taking input and printing output is handled automatically.
+	*/
+    
+//     code written M1000;
+//     Remove Duplicates Recursively
+
+ if(input[0]=='\0')
+        return;
+    if(input[0]!=input[1])
+        removeConsecutiveDuplicates(input+1);
+    else
+    {
+        for(int i=0;input[i]!='\0';i++)
+        {
+            input[i]=input[i+1];
+        }
+        removeConsecutiveDuplicates(input);
+        
+    }
+}
+
+----------------------------------------------------------
+q3 merge sort code
+void merging(int input [],int low, int mid, int high) {
+// code written by M1000;
+//     Merge Sort Code
+    int b[high-low+1];
+    int l1=low,l2=mid+1,i=0;
+    while(l1 <= mid && l2 <= high) {
+        if(input[l1] <= input[l2])
+            b[i++] = input[l1++];
+        else
+            b[i++] = input[l2++];
+    }   // end while loop here
+        while(l1 <= mid)  
+        {
+            b[i++] = input[l1++];
+        }
+
+        while(l2 <= high)  
+        {
+            b[i++] = input[l2++];
+        }
+
+        int j=0;
+        for(i = low; i <= high; i++)
+            input[i] = b[j++];
+       
+      //   }   dont end it here 
+}
+void mergeSort1(int input[],int first,int last)
+{
+
+
+    if(first<last) {
+        int mid = (first+last) / 2;
+        mergeSort1(input,first, mid);
+        mergeSort1(input,mid+1,last);
+        merging(input,first, mid,last);
+    } else { 
+        return;
+    }   
+}
+void mergeSort(int input[],int length)
+{
+    if(length<=0)
+    {
+        return;
+    }
+    mergeSort1(input,0,length-1);
+}
+--------------------------------------------------------------------
+Q4 Quick Sort Code
+void swap(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+
+// code written by M1000;
+// Quick Sort Code
+int p_front_cn(int a[], int l , int h )// equal to the left
+{
+	int pivot = a[l];
+	int count = 0;
+	for (int i = l + 1 ; i <= h; i++)
+	{if (a[i] <= pivot) count++; }
+
+	swap(&a[l], &a[l + count]);
+	pivot = a[l + count];
+	int i = l ; int j = l + count + 1;
+	while (i < l + count && j <= h)
+	{
+		if (a[i] <= pivot)i++;
+		else if (a[j] > pivot)j++;
+		else
+		{
+			swap ( &a[i] , &a[j]); i++ ; j++;
+		}
+	}
+	return l + count;
+}
+int p_back_clrs(int a[],  int l , int h)
+{
+	int pivot = a[h];
+	int i = l - 1;
+	for (int j = l ; j < h ; j++)
+	{
+		if (a[j] < pivot)
+		{
+			i++;
+			swap(&a[j], &a[i]);
+		}
+	}
+	swap(&a[h], &a[i + 1]);
+	return i + 1;
+}
+int p_front_clrs(int a[] , int l , int h)
+{
+	int pivot = a[l];
+
+	int i = h + 1;
+
+	for (int j = h; j > l ; j--)
+	{
+		if (a[j] > pivot)
+		{
+			i--;
+			swap(&a[j], &a[i]);
+		}
+	}
+	swap(&a[l] , &a[i - 1]);
+	return i - 1;
+
+}
+void QuickSort(int a[], int s, int e)
+{
+	if (s >= e)
+		return;
+	 //int p = p_front_cn(a, s, e);
+	//int p = p_front_clrs(a, s, e);
+	int p = p_back_clrs(a, s, e);
+
+	QuickSort(a, s, p - 1);
+	QuickSort(a, p + 1, e);
+
+
+}
+void quickSort(int input[], int size) {
+
+	int start = 0;
+	int end = size - 1;
+
+	QuickSort(input, start, end);
+
+}
+----------------------------------------------
+Q4 Return Keypad Code
+
+#include <string>
+using namespace std;
+string key[]={" ", " ","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+
+int keypad(int num, string output[]){
+    /* Insert all the possible combinations of the integer number into the output string array. You do not need to
+    print anything, just return the number of strings inserted into the array.
+    */
+//     code by M1000;
+//     Return Keypad Code
+    int x=num%10;
+    //base case
+    if(x==0 ||x==1)
+    {     output[0]="";
+          return 1;
+    }
+    
+    int SizeOfSmall=keypad(num/10,output);
+    for(int i=1;i<key[x].size();i++){
+        for(int j=0;j<SizeOfSmall;j++){
+            output[SizeOfSmall*i+j]=output[j];
+        }
+    }
+    for(int i=0;i<key[x].size();i++){
+        for(int j=0;j<SizeOfSmall;j++){
+            output[SizeOfSmall*i+j]=output[SizeOfSmall*i+j]+key[x][i];
+        }
+    }
+    return SizeOfSmall*key[x].size();
+    
+}
+
+------------------------------------------------------------
+Q5 Print Keypad Combinations Code
+
+#include <iostream>
+#include <string>
+using namespace std;
+string key[]={" ", " ","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+// Print Keypad Combinations Code
+void printKeypad(int num,string str=""){
+    /*
+    Given an integer number print all the possible combinations of the keypad. You do not need to return anything just print them.
+    */
+    if(num==0)
+//         code by M1000;
+        
+    {
+        cout<<str<<endl;
+        return;
+    }
+    int x=num%10;
+    for(int i=0;i<key[x].size();i++)
+    {
+        printKeypad(num/10,key[x][i]+str);
+    }
+    
+}
+-----------------------------------------------------------------------
+Q1 Check AB 
+
+bool solve(char input[]) {
+    if(input[0]=='\0')
+        return true; // Write your code here
+    bool so;
+    if(input[0]=='a'&&(input[1]=='\0'||input[1]=='a'))
+        so=solve(input+1);
+    else if(input[0]=='a'&&(input[1]=='b'&&input[2]=='b'))
+        so=solve(input+1);
+    else if(input[0]=='b'&&input[1]=='b'&&(input[2]=='\0'||input[2]=='a'))
+        so= solve(input+2);
+    else
+        return false;
+    
+//     code written by M1000
+//     Check AB
+    return so;
+}
+
+
+bool checkAB(char input[]) {
+    if(input[0]=='\0')
+        return true; 
+    else if (input[0] != 'a')
+        return false;
+    return solve(input);
+}
+-------------------------------------------------------
+Q3 Binary Search (Recursive)
+// input - input array
+// size - length of input array
+// element - value to be searched
+
+// code written by M1000;
+// Binary Search (Recursive)
+
+int B(int a[],int s,int e, int i)
+{
+    if(s>e)
+        return -1;
+    int mid= (s+e)/2;
+    if(a[mid]==i) return mid;
+    if(a[mid]>i) return B(a,s,mid-1,i);
+     if(a[mid]<i) return B(a,mid+1,e,i);
+}
+
+
+
+int binarySearch(int input[], int size, int element) {
+    // Write your code here
+    
+     int start =0;
+    int end= size -1;
+     int ans =B(input ,start,end,element);
+    return ans;
+
+}
+-----------------------------------------------------
+
+Q4Return subset of an array 
+
+/***
+You need to save all the subsets in the given 2D output array. And return the number of subsets(i.e. number of rows filled in output) from the given function.
+
+In ith row of output array, 1st column contains length of the ith subset. And from 1st column actual subset follows.
+For eg. Input : {1, 2}, then output should contain 
+	{{0}, 		// Length of this subset is 0
+	{1, 2},		// Length of this subset is 1
+	{1, 1},		// Length of this subset is also 1
+	{2, 1, 2}}	// Length of this subset is 2
+
+Don’t print the subsets, just save them in output.
+***/
+// code written by M1000;
+// Return subset of an array
+int subset(int input[], int n, int output[][20]) {
+    // Write your code here
+    if(n<=0) {
+      output[0][0]=0;
+      return 1;
+
+}
+
+    int smallOutput = subset(input+1,n-1,output);
+  for(int i=0;i<smallOutput;i++) {
+      int col = output[i][0] +1;
+     output[i+smallOutput][0] = col;
+       output[i+smallOutput][1] = input[0];
+      for(int j=2; j<col+1;j++) {
+        output[i+smallOutput][j] = output[i][j-1];
+      }
+
+  }
+
+  return 2*smallOutput;
+}
+
+--------------------------------------------------------------------
+Q5 Print Subsets of Array
+void help(int input[],int startindex,int s,int output[],int m)
+{
+    //if all the elemts have been included 
+    if(startindex==s)
+    {
+//         code written by M1000;
+        //output array is filled we just need to print it's each element
+        for(int i=0;i<m;i++)
+        {
+            cout<<output[i]<<" ";
+        }
+        cout<<endl;
+        return ;
+    }
+    
+    int helpo[1000];
+    int helps=0;
+    help(input,startindex+1,s,output,m);
+    int i;
+    for( i=0;i<m;i++)
+    {
+        helpo[i]=output[i];
+    }
+    helpo[i]=input[startindex];
+    help(input,startindex+1,s,helpo,m+1);
+}
+void printSubsetsOfArray(int input[], int size) {
+	// Write your code here
+    int output[1001];
+    int m=0;
+    help(input,0,size,output,m);
+}
+
+---------------------------------------------------------------
+Q6 Return subsets sum to K
+#include <iostream>
+// code written M1000;
+//  Return subsets sum to K
+using namespace std;
+int subsetsumtok(int input[], int n,int si, int output[][50], int k)
+{
+    if(si==n)
+    {
+        if(k==0)
+        {
+            output[0][0]=0;
+            return 1;
+        }
+        else
+            return 0;
+    }
+    int smalloutput1[1000][50];
+    int smalloutput2[1000][50];
+    
+    int s1=subsetsumtok(input,n,si+1,smalloutput1,k);
+    int s2=subsetsumtok(input,n,si+1,smalloutput2,k-input[si]);
+    
+    int row=0;
+    for(int i=0 ;i<s1;i++)
+    {
+        for(int j=0 ;j<=smalloutput1[i][0];j++ )
+        {
+           output[row][j]=smalloutput1[i][j];
+        }
+        row++;
+    }
+    for(int i=0 ;i<s2;i++)
+    {
+        output[row][0]=smalloutput2[i][0]+1;
+        output[row][1] = input[si];
+        for(int j=1 ;j<=smalloutput2[i][0];j++ )
+        {
+           output[row][j+1]=smalloutput2[i][j];
+        }
+        row++;
+    }
+    
+    return row;
+    
+    
+}
+int subsetSumToK(int input[], int n, int output[][50], int k) {
+    // Write your code here
+		return subsetsumtok(input,n,0,output,k);
+}
+
+------------------------------------------------------------------------
+QPrint Subset Sum to K
+
+#include <iostream>
+using namespace std;
+#include <vector>
+// code written by M1000;
+// Print Subset Sum to K
+
+void help(int input[], int size, int k ,vector<int> ans)
+{
+    if(size==0)
+    {
+        if(k==0)
+        {
+            for(int i: ans)
+                cout<<i<<" ";
+            cout<<endl;
+        }
+        
+        return;
+    }
+    help(input+1,size-1,k,ans);//not including
+
+    ans.push_back(input[0]);
+    
+    help(input+1,size-1,k-input[0],ans);// including
+                                 
+    return;
+}
+
+void printSubsetSumToK(int input[], int size, int k) {
+    // Write your code here
+    vector<int > ans;
+    
+    help(input,size,k,ans);
+    
+}
+
+--------------------------------------------------------------------
+
+Q Return all codes - String
+
+#include<vector>
+#include <string.h>
+using namespace std;
+
+// code written by M1000
+// Return all codes - String
+void help(string input,string out,vector<string> &str){
+    if(input.size()==0){
+        str.push_back(out);
+        return;
+    }
+    char c1=(input[0]-48)+96;
+    
+    //Ignore the output coming from zero in a string
+    if(input[0]=='0')
+        return;
+    
+    help(input.substr(1),out+c1,str);
+    
+    if(input.size()>1){
+        int d=(input[0]-48)*10+(input[1]-48);
+        if(d>26)
+            return;
+        char c2=96+d;
+        help(input.substr(2),out+c2,str);
+    }
+    
+}
+
+
+int getCodes(string input, string output[10000]) {
+    /*
+    You are given the input text and output string array. Find all possible codes and store in the output string array. Don’t print the codes.
+    Also, return the number of codes return to the output string. You do not need to print anything.
+    */
+    vector<string> str;
+    string out="";
+    help(input,out,str);
+    
+    for(int i=0;i<str.size();i++)
+        output[i]=str[i];
+    
+    int x=str.size();
+    
+    return x;
+
+    
+}
+
+--------------------------------------------------------------------------
+QPrint all Codes - String
+
+#include <string.h>
+using namespace std;
+// code written by M1000;
+// Print all Codes - String
+
+void help(string input,string output)
+{
+    if(input.size()==0)
+    {
+        cout<<output<<endl;
+        return;
+    }
+    
+    char c1=(input[0]-'0')+96;
+    help(input.substr(1),output +c1);
+    
+    int d =(input[0]-'0')*10 +(input[1]-'0');
+    if( d>=10 && d<=26)
+    {   char c2= d+96;
+        help(input.substr(2),output +c2);
+    }
+}
+
+
+
+void printAllPossibleCodes(string input) {
+    /*
+    Given the input as a string, print all its possible combinations. You do not need to return anything.
+ 
+ */
+    
+    
+     string output="";
+    
+    help(input,output);
+}
+
+------------------------------------------------------------
+Q Return Permutations - String
+#include <string>
+using namespace std;
+
+int returnPermutations(string input, string output[]){
+   	/* Don't write main() function.
+	 * Don't read input, it is passed as function argument.
+	 * Print output as specified in the question
+	*/
+//     code written by M1000;
+//    Return Permutations - String 
+    
+    
+    if(input.size()==1)
+    {
+        output[0]=input[0];
+        return 1;
+        
+    }
+    int index=0;
+    for(int i=0 ;i< input.size();i++)
+    {
+        string smalloutput[1000];
+        int ans= returnPermutations(input.substr(0,i)+input.substr(i+1,input.size()-i-1),smalloutput);
+        for(int j=0;j<ans;j++)
+        {
+            output[index++]=input[i]+smalloutput[j];
+        }
+          }
+return index;
+
+}
+------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+

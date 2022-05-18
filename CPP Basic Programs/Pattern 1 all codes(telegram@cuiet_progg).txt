@@ -1,0 +1,200 @@
+All codes provided by Programmers of cuiet:
+join officail telegram: https://t.me/cuiet_progg
+
+----------------------------------------------------------------
+Code : Square Pattern
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       /*  Read input as specified in the question.
+	* Print output as specified in the question.
+	*/
+  int n;
+    cin>>n;
+    int i=1;
+    while (i<=n){
+        
+        
+        int j=1;
+        
+        while (j<=n){
+            cout<<n;
+            j=j+1;
+        }
+        cout<<endl;
+        i=i+1;
+    }
+}
+
+--------------------------------------------------------------------
+Code : Triangular Star Pattern
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       /*  Read input as specified in the question.
+	* Print output as specified in the question.
+	*/
+  int n;
+    cin>>n;
+    int i=1;
+    while (i<=n){
+        int j=1;
+        while (j<=i){
+            cout<<"*";
+            j=j+1;
+        }
+        cout<<endl;
+        i=i+1;
+    }
+}
+
+-----------------------------------------------------------------
+Code : Triangle Number Pattern
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       /*  Read input as specified in the question.
+	* Print output as specified in the question.
+	*/
+  int n;
+    cin>>n;
+    int i=1;
+    while (i<=n){
+        int j=1;
+        
+        while (j<=i){
+            cout<<i;
+            j=j+1;
+        }
+        cout<<endl;
+        i=i+1;
+    }
+}
+
+----------------------------------------------------------------------
+Code : Reverse Number Pattern
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       /*  Read input as specified in the question.
+	* Print output as specified in the question.
+	*/
+  int n;
+    cin>>n;
+    int i=1;
+    while (i<=n){
+        int j=1;
+        int k=i;
+        while (j<=i){
+            cout<<k;
+            j=j+1;
+            k=k-1;
+        }
+        cout<<endl;
+        i=i+1;
+    }
+}
+
+
+----------------------------------------------------------------------
+Code : Alpha Pattern
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       /*  Read input as specified in the question.
+	* Print output as specified in the question.
+	*/
+  int n;
+    cin>>n;
+    int i=1;
+    while (i<=n){
+        int j=1;
+        int k=i;
+        while (j<=i){
+            cout<<k;
+            j=j+1;
+            k=k-1;
+        }
+        cout<<endl;
+        i=i+1;
+    }
+}
+-----------------------------------------------------------------------
+Code : Character Pattern
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       /*  Read input as specified in the question.
+	* Print output as specified in the question.
+	*/
+  int n;
+    cin>>n;
+    int i=1;
+    char a=64;
+    while (i<=n){
+        
+        int j=1;
+        char k= a+i;
+        while (j<=i){
+            cout<<k;
+            j=j+1;
+            k=k+1;
+        }
+        cout<<endl;
+        i=i+1;
+    }
+}
+
+
+---------------------------------------------------------------------------
+Code : Interesting Alphabets
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       /*  Read input as specified in the question.
+	* Print output as specified in the question.
+	*/
+  int n;
+    cin>>n;
+    int i=1;
+    while (i<=n){
+        
+        int j=1;
+        char k= 65+n-i;
+        while (j<=i){
+            cout<<k;
+            j=j+1;
+            k=k+1;
+        }
+        cout<<endl;
+        i=i+1;
+    }
+}
+----------------------------------------------------------------------------------
+
+
+

@@ -1,0 +1,212 @@
+Power
+
+int power(int x, int n) {
+    
+    if(n==0){
+        return 1 ; 
+    }
+    
+    return power(x , n-1)*x;
+
+}
+
+
+----------------------------------------------------------
+Print Numbers
+
+void print(int n){
+    //write your code here
+    if(n == 0){
+        return ; 
+    }
+    
+    print(n-1) ; 
+    cout<<n<<" " ; 
+}
+
+-----------------------------------------------------------
+Number of Digits
+
+int count(int n , int ans=0){
+    //write your code here
+    if(n == 0){
+        return ans ; 
+    }
+    
+    return count(n/10 , ans+1) ; 
+}
+----------------------------------------------------------
+Sum of Array
+
+
+int sum(int input[], int n) {
+  /* Don't write main().
+     Don't read input, it is passed as function argument.
+     Return output and don't print it.
+     Taking input and printing output is handled automatically.
+  */
+   if (n == 0){
+        return 0;
+    }
+    int smallOut = sum(input+1,n-1);
+    int output = input[0];
+    output = output + smallOut;
+    return output;
+
+}
+------------------------------------------------------------
+Check Number
+
+bool checkNumber(int input[], int size, int x) {
+  /* Don't write main().
+     Don't read input, it is passed as function argument.
+     Return output and don't print it.
+     Taking input and printing output is handled automatically.
+  */
+    if (size == 0){
+            return false;
+    }
+    if (input[size-1] == x){
+            return true;
+    }
+    bool smallOutput = checkNumber(input,size -1,x);
+}
+-----------------------------------------------------------
+First Index of Number
+
+ int firstIndex(int input[], int size, int x) {
+  /* Don't write main().
+     Don't read input, it is passed as function argument.
+     Return output and don't print it.
+     Taking input and printing output is handled automatically.
+  */
+    static int count = 0;
+    if (count == size){
+        return -1;
+    }
+    if (input[count] == x){
+        return count;
+    }
+    count++;
+    int smallOutput = firstIndex(input,size,x);
+}
+
+------------------------------------------------------------
+Last Index of Number
+
+int lastIndex(int input[], int size, int x) {
+  /* Don't write main().
+     Don't read input, it is passed as function argument.
+     Return output and don't print it.
+     Taking input and printing output is handled automatically.
+  */
+    static int count = size -1;
+    if (count < 0){
+        return -1;
+    }
+    if (input[count] == x){
+        return count;
+    }
+    count--;
+    int smallOutput = lastIndex(input,size,x);
+
+}
+-------------------------------------------------------------
+All Indices of Number
+
+int allIndexes(int input[], int size, int x, int output[]) {
+  /* Don't write main().
+     Don't read input, it is passed as function argument.
+     Save all the indexes in the output array passed and return the size of output array.
+     Taking input and printing output is handled automatically.
+  */
+    static int count = 0;
+    static int count2 = 0;
+    if (count == size){
+        return count2;
+    }
+    if (input[count] == x){
+        output[count2] = count;
+        count2++;
+    }
+    count++;
+    int smallOutput = allIndexes(input,size,x,output);
+}
+----------------------------------------------------------
+Multiplication (Recursive)
+
+int multiplyNumbers(int m, int n) {
+    // Write your code here
+    if(n == 0){
+        return 0 ; 
+    }
+    return multiplyNumbers(m , n-1)+m ;
+}
+
+-----------------------------------------------------------
+Count Zeros
+
+int countZeros(int n) {
+    // Write your code here
+    static int count=0;
+    if(n>0)
+    {
+        if(n%10==0)
+        count++;
+        
+        countZeros(n/10);
+        return count;
+    }
+    return 1;
+}
+-------------------------------------------------------------
+Geometric Sum
+
+#include <bits/stdc++.h>
+double geometricSum(int k) {
+    // Write your code here
+    if (k == 0){
+    return 1;
+    }
+    double smallOutput = (1/pow(2,k))+geometricSum(k-1);
+    return smallOutput;
+}
+---------------------------------------------------------------
+Check Palindrome (recursive)
+
+#include<bits/stdc++.h>
+
+bool helper(char input[] , int s , int e){
+    if(input[s] != input[e]){
+         return false ; 
+     }
+     if(s >e) return true ; 
+     if(s == e){
+         return true ; 
+     }
+     
+ return helper(input , s+1 , e-1) ; 
+}
+
+
+bool checkPalindrome(char input[] ) {
+    // Write your code here
+    int s =0 ; 
+    int e = strlen(input)-1 ; 
+    return helper(input , s , e ) ; 
+
+}
+---------------------------------------------------------------
+Sum of digits (recursive)
+
+int sumOfDigits(int n , int sum=0) {
+    // Write your code here
+    if(n == 0){
+        return sum ; 
+    }
+    
+    return sumOfDigits(n/10 , sum+n%10) ; 
+
+}
+-----------------------------------------------------------------
+

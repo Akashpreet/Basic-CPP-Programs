@@ -1,0 +1,272 @@
+All codes provided by Programmers of cuiet:
+join officail telegram: https://t.me/cuiet_progg
+--------------------------------------------------------
+Nth Fibonacci Number
+
+#include<iostream> 
+using namespace std; 
+ 
+ 
+int main(){ 
+    int N; 
+    cin>>N; 
+    int f1=0; 
+    int f2=1; 
+    int f; 
+    for(int m=1; m<=N;m++){ 
+        if (m==1){ 
+           f=1; 
+        } 
+        else{ 
+        f=f1+f2; 
+        f1=f2; 
+        f2=f; 
+        } 
+      
+    } 
+    cout<<f; 
+}
+---------------------------------------------------------
+All Prime Numbers
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    /* Read input as specified in the question.
+  * Print output as specified in the question.
+  */
+  int N;
+  cin>>N;
+  
+    for(int i=2;i<=N;i++){
+        if (i==2){
+           cout<<2<<endl;
+        }
+        if (i%2==0){
+            continue;
+        }
+        else{
+            bool divided = false;
+            for(int m=2;m<i;m++){
+                if (i%m==0){
+                    divided= true;
+                    break;
+                }
+            }
+            if (divided == false){
+                cout<<i<<endl;
+            }
+        }
+    }
+}
+-----------------------------------------------------------------
+Count Characters
+
+#include<iostream> 
+using namespace std; 
+ 
+int main(){ 
+ 
+    /* Read input as specified in the question. 
+  * Print output as specified in the question. 
+  */ 
+  char c; 
+  c = cin.get(); 
+    int digits = 0; 
+    int characters =0 ; 
+    int whitespaces = 0; 
+    while(c != '$'){ 
+        if (c>= 'a' && c<='z'){ 
+            characters++; 
+        } 
+        else if(c>='0' && c<='9') { 
+             digits++; 
+        } 
+        else{ 
+           whitespaces++; 
+        } 
+        c = cin.get(); 
+    } 
+    cout<<characters<<" "<<digits<<" "<<whitespaces; 
+}
+-------------------------------------------------------------------
+Sum or Product
+
+#include<iostream>
+using namespace std;
+
+int main() {
+	// Write your code here
+    int n,q;
+	cin>>n>>q; 
+    int sum=0; 
+   
+    int prod=1; 
+    for(int i=1;i<=n;i++){ 
+        if (q==1){ 
+            sum = sum +i; 
+        }  
+        else { 
+            prod =prod * i; 
+        } 
+    } 
+    if (q ==1){ 
+         cout<<sum<<endl; 
+    } 
+    else if(q==2){ 
+     cout<<prod<<endl; 
+    }
+    else{
+        cout<<-1;
+    }
+}
+------------------------------------------------------------------
+Terms of AP
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int x;
+    cin>>x;
+    int m=1;
+    int n=1;
+    while(n<=x or m<=x){
+        int y;
+        y=(3*n)+2;
+        if (y%4!=0){
+        cout << y<<" ";
+        m++;
+        }
+        n++;
+        
+    }
+}
+-------------------------------------------------------------------
+Reverse of a number
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int x;
+    cin>>x;
+    int m;
+    while (1){
+        if (x%10==0){
+            x=x/10;
+        }
+        else {
+            break;
+        }
+    }
+    
+    while (x!=0){
+        m= x%10;
+        x= x/10;
+        cout<<m;
+        
+    }
+    
+    
+}
+-----------------------------------------------------------------------
+Binary to decimal
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    int x;
+    cin>>x;
+    int i=0;
+    int y=0;
+    //binary to decimal
+    while(x!=0){
+        
+        y=y+(x%10)*pow(2,i);
+        x=x/10;
+        i++;
+    }
+    cout<<y;
+    
+}
+
+-----------------------------------------------------------------------
+Decimal to Binary
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int x;
+    cin>>x;
+    long int ans=0;
+    int y=0;
+    long long int i=1;
+    //decimal to binary
+    while (x!=0){
+        y=x%2;
+        ans = ans +y*i;
+        x=x/2;
+        i= i*10;
+    }
+    cout<<ans;
+    
+}
+--------------------------------------------------------------------------
+Square Root (Integral)
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    //sqrt of numbers
+    int n;
+    cin >> n;
+    int z;
+    z= sqrt(n);
+    cout<<z;
+}
+---------------------------------------------------------------------------
+#include<iostream>
+using namespace std;
+
+int main() {
+	int n;
+    std::cin>>n;
+    int curr=0,prev=0;
+    int increasing=0;
+    for(int i=0;i<n;i++){
+        std::cin>>curr;
+        if(curr==prev){
+            std::cout<<"false";
+        	return 0;
+        }
+        else if(curr<prev){
+            if(increasing>0){
+                cout<<"false";
+                return 0;
+            }
+    	}
+        else if(curr>prev && i>0){
+			increasing++;
+        }
+        prev=curr;
+}
+    std::cout<<"true";
+}
+
+-------------------------------------------------------------------------------
+
+
+
+
+
+

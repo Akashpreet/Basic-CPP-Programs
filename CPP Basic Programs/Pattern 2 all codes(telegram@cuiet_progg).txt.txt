@@ -1,0 +1,199 @@
+All codes provided by Programmers of cuiet:
+join officail telegram: https://t.me/cuiet_progg
+--------------------------------------------------------
+Code : Mirror Number Pattern
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       /*  Read input as specified in the question.
+	* Print output as specified in the question.
+	*/
+  int n;
+    cin>>n;
+    int i=1;
+    int k=1;
+    while (i<=n){
+        int spaces=1;
+        while(spaces<=n-i){
+            cout<<" ";
+            spaces=spaces+1;
+        }
+        
+        int j=1;
+        
+        while (j<=i){
+            cout<<j;
+            j=j+1;
+        }
+        cout<<endl;
+        i=i+1;
+    }
+}
+
+-------------------------------------------------------------------
+Code : Inverted Number Pattern
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       /*  Read input as specified in the question.
+	* Print output as specified in the question.
+	*/
+  int n;
+    cin>>n;
+    int i=1;
+    while (i<=n){
+        
+        int j=1;
+        int k =n-i+1;
+        while (j<=k){
+            cout<<k;
+            j=j+1;
+        }
+        cout<<endl;
+        i=i+1;
+    }
+}
+----------------------------------------------------------------------
+Code : Star Pattern
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       /*  Read input as specified in the question.
+	* Print output as specified in the question.
+	*/
+  int n;
+    cin>>n;
+    int i=1;
+    int k=1;
+    while (i<=n){
+        int spaces=1;
+        while(spaces<=n-i){
+            cout<<" ";
+            spaces=spaces+1;
+        }
+        
+        int j=1;
+        
+        while (j<=k){
+            cout<<"*";
+            j=j+1;
+        }
+        cout<<endl;
+        k=k+2;
+        i=i+1;
+    }
+}
+----------------------------------------------------------------------------
+Code : Triangle of Numbers
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       /*  Read input as specified in the question.
+	* Print output as specified in the question.
+	*/
+    int n;
+    cin>>n;
+    int i=1;
+    while (i<=n){
+        int spaces=1;
+        while(spaces<=n-i){
+            cout<<" ";
+            spaces=spaces+1;
+        }
+        
+        int j=1;
+        int k=i;
+        while (j<=i){
+            cout<<k;
+            k=k+1;
+            j=j+1;
+        }
+        k=k-2;
+        j=i;
+        while (j>1){
+            cout<<k;
+            k=k-1;
+            j=j-1;
+        }
+        cout<<endl;
+        i=i+1;
+    }
+  
+}
+----------------------------------------------------------------------------
+Code : Diamond of stars
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+       /*  Read input as specified in the question.
+	* Print output as specified in the question.
+	*/
+  int n;
+    cin>>n;
+    int i=1;
+    int n1=n/2+1;
+    int n2=n-n1;
+    int stars=i;
+    while (i<=n1){
+        
+        int spaces=1;
+        while(spaces<=n1-i){
+            cout<<" ";
+            spaces=spaces+1;
+        }
+        
+        int j=1;
+        
+        while (j<=stars){
+            cout<<"*";
+            j=j+1;
+        }
+        cout<<endl;
+        i=i+1;
+        stars=stars+2;
+    }
+    i=i-2;
+    stars=stars-4;
+    while (i>0){
+        int spaces=1;
+        while(spaces<=n2-i+1){
+            cout<<" ";
+            spaces=spaces+1;
+        }
+        int j=1;
+        
+        while (j<=stars){
+            cout<<"*";
+            j=j+1;
+        }
+        cout<<endl;
+        i=i-1;
+        stars=stars-2;
+    }
+}
+
+
+--------------------------------------------------------------------------------------------------
+
+
+
